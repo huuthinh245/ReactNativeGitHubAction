@@ -1,0 +1,19 @@
+name: DEV APP
+
+on: workflow_dispatch
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: docker://fabernovel/android:api-29-v1.1.0
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@master
+      - uses: actions/setup-python@v2
+
+      - name: Create environment
+        run: |
+          echo "ENV=DEV" >> .env.dev
+          echo "BASE_URL=${{ secrets.URL }}" >> .env.dev
