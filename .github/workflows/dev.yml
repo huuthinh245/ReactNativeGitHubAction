@@ -44,18 +44,18 @@ jobs:
             - name: Build Android App Bundle
               run: |
                   cd android && ENVFILE=.env.staging ./gradlew assemblestagingRelease --no-daemon
-      - name: Distribute app via Firebase App Distribution
-        env:
-          firebaseToken: ${{ secrets.FIREBASE_TOKEN }}
-          firebaseGroups: ${{ secrets.FIREBASE_GROUPS }}
-          firebaseAppId: ${{ secrets.DEV_FIREBASE_APP_ID }}
-          notes: ${{ github.event.head_commit.message }}
-        run: |
-          yarn global add firebase-tools
-          export PATH="$(yarn global bin):$PATH"
-          firebase \
-            appdistribution:distribute android/app/build/outputs/apk/staging/release/app-staging-release.apk \
-            --app $firebaseAppId \
-            --release-notes "$notes" \
-            --groups "$firebaseGroups" \
-            --token "$firebaseToken"
+            - name: Distribute app via Firebase App Distribution
+              env:
+                firebaseToken: ${{ secrets.FIREBASE_TOKEN }}
+                firebaseGroups: ${{ secrets.FIREBASE_GROUPS }}
+                firebaseAppId: ${{ secrets.DEV_FIREBASE_APP_ID }}
+                notes: ${{ github.event.head_commit.message }}
+              run: |
+                yarn global add firebase-tools
+                export PATH="$(yarn global bin):$PATH"
+                firebase \
+                  appdistribution:distribute android/app/build/outputs/apk/staging/release/app-staging-release.apk \
+                  --app $firebaseAppId \
+                  --release-notes "$notes" \
+                  --groups "$firebaseGroups" \
+                  --token "$firebaseToken"
