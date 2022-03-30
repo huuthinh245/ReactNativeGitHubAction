@@ -1,0 +1,13 @@
+module.exports = {
+	root: true,
+	extends: '@react-native-community',
+	parser: '@typescript-eslint/parser',
+	plugins: ['@typescript-eslint'],
+	rules: {
+		'no-shadow': 'off',
+		'@typescript-eslint/no-shadow': ['error'],
+		'semi': 'off',
+		'@typescript-eslint/semi': ['error'],
+		'no-mixed-spaces-and-tabs': 0,
+	},
+};
