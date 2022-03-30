@@ -71,4 +71,5 @@ jobs:
               🍺  DEV
               📌  Version: ${{ secrets.APP_VERSION_NAME }} (${{ github.run_number }})
               🧔🏻‍♂️  ${{ github.actor }}
+              😃  Commit message: ${{ github.event.commits[0].message }}
               🪄 ${{ github.ref }}
