@@ -73,3 +73,5 @@ jobs:
               🧔🏻‍♂️  ${{ github.actor }}
               😃  Commit message: ${{ github.event.head_commit.message}}
               🪄 ${{ github.ref }}
+                 Repository: ${{ github.repository }}
+                changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
