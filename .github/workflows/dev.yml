@@ -59,3 +59,15 @@ jobs:
                   --release-notes "$notes" \
                   --groups "$firebaseGroups" \
                   --token "$firebaseToken"
+            - name: Send tele message
+              uses: appleboy/telegram-action@master
+              with:
+                  to: ${{ secrets.TELEGRAM_TO }}
+                  token: ${{ secrets.TELEGRAM_TOKEN }}
+                  format: markdown
+                  message: |
+                      🚀  [Test GitHubAction]
+                      🍺  DEV
+                      📌  Version: ${{ env.APP_VERSION_NAME }} (${{ github.run_number }})
+                      🧔🏻‍♂️  ${{ github.actor }}
+                      🪄 ${{ github.ref }}
