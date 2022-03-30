@@ -66,6 +66,7 @@ jobs:
                   token: ${{ secrets.TELEGRAM_TOKEN }}
                   format: markdown
                   message: |
+                      =====================
                       🚀  [Test GitHubAction]
                       🍺  DEV
                       📌  Version: ${{ secrets.APP_VERSION_NAME }} (${{ github.run_number }})
