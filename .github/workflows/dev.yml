@@ -1,12 +1,15 @@
 name: DEV APP
 
 on: workflow_dispatch
-
+env: 
+  TELEGRAM_TO: -1001513716311
+  TELEGRAM_TOKEN: 2036923016:AAFQcCI_lVtIzFvt6wlpvBSM7PO6HmPUvv0
+  APP_VERSION_NAME: '1.0.1'
 jobs:
   build:
       runs-on: ubuntu-latest
       container:
-          image: docker://fabernovel/android:api-29-v1.1.0
+          # image: docker://fabernovel/android:api-29-v1.1.0
       steps:
           # - uses: actions/checkout@v2
           # - uses: actions/setup-node@master
@@ -62,8 +65,13 @@ jobs:
           - name: Send tele message
             uses: appleboy/telegram-action@master
             with:
-              to: ${{ secrets.TELEGRAM_TO }}
-              token: ${{ secrets.TELEGRAM_TOKEN }}
+              to: ${{ env.TELEGRAM_TO }}
+              token: ${{ env.TELEGRAM_TOKEN }}
               format: markdown
               message: |
-                test github action
+                ========
+                🚀  [APP  DRIVER]
+                🍺  DEV
+                📌  (${{ github.run_number }})
+                🧔🏻‍♂️  ${{ github.actor }}
+                🪄 ${{ github.ref }}
