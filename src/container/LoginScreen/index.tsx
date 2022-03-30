@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux';
 import {SplashScreenParam} from 'screens';
 import {actions, UserApi} from '@stores/user';
 import {styles} from './styles';
+import Config from 'react-native-config';
 
 type Props = SplashScreenParam & {};
 
@@ -26,6 +27,7 @@ const SplashScreen: React.FC<Props> = props => {
 		<View style={styles.container}>
 			<Text onPress={onLogin}>LoginScreen</Text>
 			<Text onPress={onProfile}>get profile</Text>
+			<Text>{Config.URL}</Text>
 		</View>
 	);
 };
