@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
   build:
-      runs-on: ubuntu-latest
+      runs-on: self-hosted
       container:
           image: docker://fabernovel/android:api-29-v1.1.0
       steps:
