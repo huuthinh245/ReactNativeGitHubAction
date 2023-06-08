@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
   build:
-      runs-on: ubutu-lastest
+      runs-on: ubuntu-latest
       container:
           image: docker://fabernovel/android:api-29-v1.1.0
       steps:
@@ -34,8 +34,8 @@ jobs:
               version-name: ${{ env.APP_VERSION_NAME }}
               print-file: true
   apk:
-    runs-on: ubutu-lastest
-    name: Install library and cache
+    runs-on: ubuntu-latest
+    name: build apk
     needs: [build]
     steps:
         - name: Build Android App Bundle
