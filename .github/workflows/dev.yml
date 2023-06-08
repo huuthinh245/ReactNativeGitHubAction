@@ -40,4 +40,4 @@ jobs:
     steps:
         - name: Build Android App Bundle
           run: |
-              cd android && ENVFILE=.env.staging ./gradlew assemblestagingRelease --no-daemon
+              ENVFILE=.env.staging ./gradlew assemblestagingRelease --no-daemon
